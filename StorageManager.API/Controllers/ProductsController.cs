@@ -34,7 +34,10 @@ public class ProductsController : ControllerBase
 
         if (product is null)
         {
-            return Results.NotFound();
+            return Results.NotFound(new
+            {
+                message = $"The Product with ID {id} was not found"
+            });
         }
 
         return Results.Ok(product);
